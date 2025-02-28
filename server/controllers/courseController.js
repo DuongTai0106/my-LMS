@@ -1,4 +1,6 @@
+import Stripe from "stripe";
 import Course from "../models/Course.js";
+
 
 //Get All Courses
 export const getAllCourses = async (req, res) => {
@@ -30,3 +32,5 @@ export const getCourseId = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
+
