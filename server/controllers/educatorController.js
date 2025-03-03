@@ -2,6 +2,7 @@ import { clerkClient } from "@clerk/express";
 import Course from "../models/Course.js";
 import cloudinary from "cloudinary";
 import { Purchase } from "../models/Purchase.js";
+import User from "../models/User.js";
 export const updateRoleToEducator = async (req, res) => {
   try {
     const userId = req.auth.userId;
@@ -10,8 +11,10 @@ export const updateRoleToEducator = async (req, res) => {
         role: "educator",
       },
     });
-    res.json({ success: true, message: "You can publish a course now" });
-    console.log(req.auth);
+    res.json({
+      success: true,
+      message: "You can publish a course now",
+    });
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
